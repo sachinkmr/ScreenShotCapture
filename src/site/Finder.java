@@ -59,7 +59,7 @@ public class Finder extends WebSpider {
 
 	@Override
 	public void handleLink(WebURL webUrl, HttpResponse response, int statusCode, String statusDescription) {
-		if (statusCode > 400 && statusCode < 300) {
+		if (statusCode > 400 || statusCode == 200) {
 			String url = webUrl.getUrl();
 			map.put(url, new LinkInfo(url));
 			System.out.println("Added: " + url);
